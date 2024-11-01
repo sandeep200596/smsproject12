@@ -1,0 +1,100 @@
+{% extends 'Navbar/StudentNavbar.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="feedback-container p-4">
+        <h2 class="text-center mb-4">Feedback Form</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+                {{ form.name.label_tag }}  <!-- Display label -->
+                {{ form.name }}  <!-- Display input -->
+                {{ form.name.errors }}  <!-- Display errors if any -->
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="form-group">
+                {{ form.rating.label_tag }}
+                {{ form.rating }}
+                {{ form.rating.errors }}
+            </div>
+
+            <div class="form-group">
+                {{ form.issues.label_tag }}
+                {{ form.issues }}
+                {{ form.issues.errors }}
+            </div>
+
+            <button type="submit" class="btn submit-btn w-100">Submit Feedback</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Custom feedback container styling */
+    .feedback-container {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Center text and add space */
+    h2 {
+        font-size: 28px;
+        color: #4a4a4a;
+    }
+
+    /* Form input and text area styling */
+    input, select, textarea {
+        border-radius: 8px;
+        padding: 12px;
+        border: 1px solid #ced4da;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Submit button style */
+    .submit-btn {
+        background-color: #673ab7;
+        color: white;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #512da8;
+    }
+
+    /* Input field focus effects */
+    input:focus, select:focus, textarea:focus {
+        border-color: #673ab7;
+        box-shadow: 0 0 8px rgba(106, 27, 154, 0.2);
+        outline: none;
+    }
+
+    /* Form Group Spacing */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .feedback-container {
+            padding: 20px;
+        }
+    }
+</style>
+{% endblock %}

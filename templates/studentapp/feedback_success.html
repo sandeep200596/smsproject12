@@ -1,0 +1,10 @@
+{% extends 'Navbar/StudentNavbar.html' %}
+{% load static %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Thank You!</h2>
+    <p>Your feedback has been submitted successfully.</p>
+    <a href="{% url 'studentapp:StudentHomePage' %}" class="btn btn-primary">Back to Home</a>
+</div>
+{% endblock %}
